@@ -7,7 +7,7 @@ This workshop is a hands-on walk through of a three-tier web architecture in AWS
 * React
 * Nodejs
 * MySQL
-* AWS Services (VPC, EC2, RDS, S3, ELB, ASG, Cloudfront, IGW, NAT GW, Route53, ACM.  
+* AWS Services (VPC, EC2, RDS, S3, ELB, ASG, Cloudfront, IGW, NAT GW, Route53, ACM).  
 
 ## Pre-requisites:
 1. An AWS account. If you don’t have an AWS account, follow the instructions [here](https://aws.amazon.com/console/) and
@@ -23,4 +23,41 @@ In this architecture, a public-facing Application Load Balancer forwards client 
 
 See [AWS Three Tier Web Architecture](https://catalog.us-east-1.prod.workshops.aws/workshops/85cd2bb2-7f79-4e96-bdee-8078e469752a/en-US)
 
+
+
+
+The frontend code is located in web-tier directory inside the application-code folder.
+
+The backend code is located in app-tier directory inside the application-code folder.
+
+## 🖥️ Installation of frontend
+
+Note: You should have nodejs installed on your system. Node.js
+
+👉 let install dependency to run react application
+
+    cd application-code/web-tier
+    npm install
+
+
+
+## 🖥️ ️Installation of backend
+
+Note: You should have nodejs installed on your system. Node.js
+
+👉 let install dependency to run Nodejs API
+
+    cd application-code/app-tier
+    npm install
+
+Now we need to create .env file that holds all the configuration details of the backend. you should be in backend directory
+
+    vim DbConfig.js
+
+add below content
+
+    DB_HOST=localhost or URL_of_RDS
+    DB_USERNAME=user_name_of_MySQL
+    DB_PASSWORD=passwod_of_my_sql
+    PORT=3306
 
