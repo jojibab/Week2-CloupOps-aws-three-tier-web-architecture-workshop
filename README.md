@@ -29,10 +29,10 @@ The backend code is located in app-tier directory inside the application-code fo
 
 ## 🖥️ ️Installation of backend
 
-Now we need to create .env file that holds all the configuration details of the backend. you should be in app-tier directory
- cd application-code/app-tier
+Now we need to modify the DbConfig.js file that holds all the configuration details of the database. It should be in the app-tier directory.
 
-    vim DbConfig.js
+     cd application-code/app-tier
+     vim DbConfig.js
 Add below content, Replace the values in string with your RDS credentials
 
     DB_HOST='localhost or RDS_URL'
