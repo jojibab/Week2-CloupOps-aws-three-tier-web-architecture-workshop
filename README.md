@@ -65,7 +65,7 @@ Note: You should have nodejs installed on your system. Node.js
 
 If you see “errored,” you’ll need to troubleshoot. To check the latest errors, use this command:
 
-        pm2 logs
+    pm2 logs
 
 Note: If you encounter any issues, check your configuration file for typos and ensure you’ve followed all installation commands correctly.
 
