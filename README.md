@@ -24,40 +24,64 @@ In this architecture, a public-facing Application Load Balancer forwards client 
 See [AWS Three Tier Web Architecture](https://catalog.us-east-1.prod.workshops.aws/workshops/85cd2bb2-7f79-4e96-bdee-8078e469752a/en-US)
 
 
-
-
 The frontend code is located in web-tier directory inside the application-code folder.
 
 The backend code is located in app-tier directory inside the application-code folder.
 
-## 🖥️ Installation of frontend
-
-Note: You should have nodejs installed on your system. Node.js
-
-👉 let install dependency to run react application
-
-    cd application-code/web-tier
-    npm install
-
-
 
 ## 🖥️ ️Installation of backend
 
-Note: You should have nodejs installed on your system. Node.js
-
-👉 let install dependency to run Nodejs API
-
-    cd application-code/app-tier
-    npm install
-
-Now we need to create .env file that holds all the configuration details of the backend. you should be in backend directory
+Now we need to create .env file that holds all the configuration details of the backend. you should be in app-tier directory
+ cd application-code/app-tier
 
     vim DbConfig.js
+Add below content, Replace the values in string with your RDS credentials
 
-add below content
+    DB_HOST='localhost or RDS_URL'
+    DB_USER='MSQL RDS Username'
+    DB_PWD='Passwod of RDS'
+    DB_DATABSE='Database name' 
 
-    DB_HOST=localhost or URL_of_RDS
-    DB_USERNAME=user_name_of_MySQL
-    DB_PASSWORD=passwod_of_my_sql
-    PORT=3306
+Note: You should have nodejs installed on your system. Node.js
+👉 let install dependency to run Nodejs API
 
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash 
+    Source ~/.bashrc
+* Next, install a compatible version of Node.js and make sure it’s being used:
+
+        nvm install 16 
+        nvm use 16
+
+* Install npm and start the backend server using pm2, pm2 a daemon process manager that will keep our node.js app running even after we exit the instance or if it is rebooted:
+
+        cd application-code/app-tier
+        npm install
+        pm2 start index.js
+        pm2 list
+
+If you see “errored,” you’ll need to troubleshoot. To check the latest errors, use this command:
+
+        pm2 logs
+
+Note: If you encounter any issues, check your configuration file for typos and ensure you’ve followed all installation commands correctly.
+
+    To ensure the app starts and keeps running after server interruptions or reboot, run the following command and save the current list of node processes:
+
+    pm2 startup 
+    pm2 save
+
+Check endpoint
+
+    curl http://localhost:4000/health
+
+Next, test your database connection by hitting the following endpoint locally: Replace Database-name with the name of your database
+
+    curl http://localhost:4000/Database-name
+
+
+## 🖥️ Installation of frontend
+Navigate to the web-tier directory
+
+    cd application-code/web-tier
+    npm install
+    npm run build
