@@ -45,7 +45,7 @@ Add below content, Replace the values in string with your RDS credentials
 Note: You should have nodejs installed on your system. Node.js
 👉 let install dependency to run Nodejs API
 
-<<<<<<< HEAD
+
     curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash 
     Source ~/.bashrc
 * Next, install a compatible version of Node.js and make sure it’s being used:
@@ -86,7 +86,3 @@ Navigate to the web-tier directory
     cd application-code/web-tier
     npm install
     npm run build
-=======
-
-/var/log/nginx/error.log
->>>>>>> c745fde (Added images)
